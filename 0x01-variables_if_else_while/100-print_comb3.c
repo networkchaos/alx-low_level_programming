@@ -1,23 +1,35 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
 
 /**
- * main - print 01 to 89
+ * main - Entry point
  *
- * Return: zero
+ * Return: Always 0 (Success)
  */
+
 int main(void)
 {
-	int i;
+	int d, p;
 
-	for (i = 1; i <= 89; i++)
+	for (d = '0'; d < '9'; d++)
 	{
-		putchar((i / 10) + '0');
-		putchar((i % 10) + '0');
-		if (i == 89)
-			break;
-		putchar(',');
-		putchar(' ');
+		for (p = d + 1; p <= '9'; p++)
+		{
+			if (p != d)
+			{
+				putchar(d);
+				putchar(p);
+
+				if (d == '8' && p == '9')
+					continue;
+
+				putchar(',');
+				putchar(' ');
+			}
+		}
 	}
 	putchar('\n');
+
 	return (0);
 }
